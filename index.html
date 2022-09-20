@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="javascript" href="app.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    <div class="head">
+<h1>nabook</h1>
+<div class="flx-1">
+<i id="nv" class="fa fa-plus"  ></i>
+<i id="nv" class="fa fa-search" ></i>
+<i id="nv" class='fab'><img  class="mes" src="messenger.png" alt=""></i></div>
+
+
+<div class="pnl-nav">
+<i id="l-active" class="fa fa-home"  ></i>
+<i id="l" class="fa fa-television"  ></i>
+<i id="l" class="fa fa-shopping-bag"  ></i>
+<i id="l" class="fa fa-user-circle-o"  ></i>
+<i id="l" class="fa fa-bell-o"  ></i>
+<i id="l" class="fa fa-bars"  ></i>
+
+</div><div class="udl"></div>
+<!---<hr>--->
+
+
+<div>
+<div class="post">
+    <img class="dp" src="4.jpg" alt="" width="35px" height="35px">
+    <input class="txt" type="text" placeholder="What's on your mind?">
+    <img class="pt" src="GALLERY-1024.png" alt="" width="35px" height="35px">
+
+
+</div>
+</div>
+
+</div>
+
+<div class="Stories">
+    <div class="tab">
+        <button id="DefaultOpen" class="tablinks" onclick="openCity(event, 'London')">Stories</button>
+        <button class="tablinks" onclick="openCity(event, 'Tokyo')">Reels</button>
+      </div>
+      
+      <div id="London" class="tabcontent">
+        <div class="hori">
+        <div class="story">
+            <img class="pro" src="4.jpg" alt="" height="150px" width="149px">
+            <div class="cntr"><p class="ad">+</p></div>
+            <p class="cs">Create story</p>
+        </div>
+
+        <div class="story1">
+            <img onclick="makeFullScreen()" id="theImage" class="pro1" src="dop.jpg" alt="" height="220px" width="149px">
+            <div class="cntr1"><img class="dp1" src="3.jpg" alt=""></div>
+        </div>
+
+        <div class="story1">
+            <img onclick="makeFullScreen()" id="theImage" class="pro1" src="wtapdp.jpg" alt="" height="220px" width="149px">
+            <div class="cntr1"><img class="dp1" src="2.jpg" alt=""></div>
+        </div>
+
+
+        <div class="story1">
+            <img onclick="makeFullScreen()" id="theImage" class="pro1" src="k.jpg" alt="" height="220px" width="149px">
+            <div class="cntr1"><img class="dp1" src="5.jpg" alt=""></div>
+        </div>
+
+    </div>
+      </div>
+      
+     
+      
+      <div id="Tokyo" class="tabcontent">
+        <div class="hori">
+            <div class="story">
+                <img class="pro" src="4.jpg" alt="" height="150px" width="149px">
+                <div class="cntr"><p class="ad">+</p></div>
+                <p class="cs">Create reel</p>
+            </div>
+    
+            <div class="story1"><i id="ply" class="fa fa-play"></i>
+                <video id="videoplay" class="pro1" src="35.mkv"  muted autoplay="true" height="220px" width="149px"></video>
+                
+                </i><div class="cntr1"><img class="dp1" src="3.jpg" alt=""></div>
+                
+            </div>
+    
+            <div class="story1"><i id="ply" class="fa fa-play"></i>
+                <video  class="pro1" muted src="oo.mp4"  autoplay="true" height="220px" width="149px"></video>
+                <div class="cntr1"><img class="dp1" src="2.jpg" alt=""></div>
+            </div>
+    
+    
+            <div class="story1"><i id="ply" class="fa fa-play"></i>
+                <video  class="pro1" muted src="ll.mp4"  autoplay="true" height="220px" width="149px"></video>
+                <div class="cntr1"><img class="dp1" src="5.jpg" alt=""></div>
+            </div>
+    
+        </div>
+</div>
+
+
+
+
+</body>
+
+
+
+<script>
+   function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+document.getElementById("DefaultOpen").click();
+
+
+
+function makeFullScreen() {
+         var divObj = document.getElementById("theImage");
+       //Use the specification method before using prefixed versions
+      if (divObj.requestFullscreen) {
+        divObj.requestFullscreen();
+      }
+      else if (divObj.msRequestFullscreen) {
+        divObj.msRequestFullscreen();            
+      }
+      else if (divObj.mozRequestFullScreen) {
+        divObj.mozRequestFullScreen();
+      }
+      else if (divObj.webkitRequestFullscreen) {
+        divObj.webkitRequestFullscreen();
+      } else {
+        console.log("Fullscreen API is not supported");
+      } 
+
+    }
+
+
+
+
+    var myVideo = document.getElementById('videoplay');
+myVideo.addEventListener('click', function () {
+if (myVideo.paused) {
+    if (myVideo.requestFullscreen) {
+        myVideo.requestFullscreen();
+    }
+    else if (myVideo.msRequestFullscreen) {
+        myVideo.msRequestFullscreen();
+    }
+    else if (myVideo.mozRequestFullScreen) {
+        myVideo.mozRequestFullScreen();
+    }
+    else if (myVideo.webkitRequestFullScreen) {
+        myVideo.webkitRequestFullScreen();
+    }
+    myVideo.play();
+}
+else {
+    myVideo.pause();
+}
+}, false);
+</script>
+
+</html>
